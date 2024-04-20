@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  imports = [./nixvim.nix];
+  imports = [./nixvim.nix ./vscode.nix];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.username = "erikm";
   home.homeDirectory = "/home/erikm";

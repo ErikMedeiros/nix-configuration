@@ -80,12 +80,12 @@
       cmp = {
         enable = true;
         settings = {
-          mappings = {
+          mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.close()";
             "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<C-p>" = "cmp.mapping.select_prev_item()";
+            "<C-n>" = "cmp.mapping.select_next_item()";
           };
           sources = map (s: {name = s;}) ["nvim_lsp" "luasnip" "path" "buffer"];
           snippet.expand = ''
