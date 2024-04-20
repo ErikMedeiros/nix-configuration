@@ -44,8 +44,15 @@
       userEmail = "erikmedeiros4@gmail.com";
       extraConfig = {
         init.defaultBranch = "main";
-        includeIf."gitdir/i:~/repos/gbm/".email = "dev23.gbmlogistica@outlook.com.br";
       };
+      includes = [
+        {
+          condition = "gitdir:~/repos/gbm/";
+          contents = {
+            user.email = "dev23.gbmlogistica@outlook.com";
+          };
+        }
+      ];
     };
 
     fzf = {
