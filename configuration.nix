@@ -81,14 +81,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.erikm = {
     isNormalUser = true;
     description = "Erik Medeiros";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -97,9 +98,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
+    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
