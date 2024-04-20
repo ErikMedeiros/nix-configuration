@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  imports = [ ./nixvim.nix ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./nixvim.nix];
 
   home.username = "erikm";
   home.homeDirectory = "/home/erikm";
@@ -19,7 +21,7 @@
     zig
     zls
     nodejs_18
-    (with dotnetCorePackages; combinePackages [ sdk_6_0 sdk_8_0 ])
+    (with dotnetCorePackages; combinePackages [sdk_6_0 sdk_8_0])
   ];
 
   home.sessionVariables = {
@@ -36,7 +38,7 @@
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
-        plugins = [ "git" "dotnet" "ripgrep" ];	
+        plugins = ["git" "dotnet" "ripgrep"];
       };
     };
 
