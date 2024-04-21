@@ -287,6 +287,7 @@
         settings = {
           direction = "float";
           insert_mappings = false;
+          terminal_mappings = false;
           open_mapping = "[[<leader>t]]";
         };
       };

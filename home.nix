@@ -2,8 +2,10 @@
   config,
   pkgs,
   ...
-}: {
-  imports = [./nixvim.nix ./vscode.nix];
+}: let
+  dotnet-sdks = with pkgs.dotnetCorePackages; combinePackages [sdk_6_0 sdk_8_0];
+in {
+  imports = [./nixvim.nix ./vscode.nix ./dconf.nix];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -21,13 +23,16 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    dotnet-sdks
+    nodejs_18
+    slack
     zig
     zls
-    nodejs_18
-    (with dotnetCorePackages; combinePackages [sdk_6_0 sdk_8_0])
   ];
 
+  home.sessionPath = ["$HOME/.dotnet/tools"];
   home.sessionVariables = {
+    DOTNET_ROOT = "${dotnet-sdks}";
   };
 
   # Let Home Manager install and manage itself.
