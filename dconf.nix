@@ -6,6 +6,7 @@
 }:
 with lib.hm.gvariant; {
   home.packages = with pkgs.gnomeExtensions; [
+    appindicator
     clipboard-indicator
     dash-to-dock
   ];

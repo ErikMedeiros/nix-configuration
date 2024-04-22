@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   dotnet-sdks = with pkgs.dotnetCorePackages; combinePackages [sdk_6_0 sdk_8_0];
 in {
   imports = [./nixvim.nix ./vscode.nix ./dconf.nix];
@@ -23,6 +19,8 @@ in {
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    dbeaver
+    discord
     dotnet-sdks
     nodejs_18
     slack
