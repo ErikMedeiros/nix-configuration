@@ -27,20 +27,24 @@
       ]);
 
     userSettings = {
-      codesnap.realLineNumbers = true;
-      codesnap.showWindowControls = false;
-      codesnap.showWindowTitle = true;
-      codesnap.shutterAction = "copy";
-      codesnap.target = "window";
-      editor.defaultFormatter = "esbenp.prettier-vscode";
-      editor.formatOnPaste = true;
-      editor.formatOnSave = true;
-      editor.minimap.size = "fit";
-      workbench.colorTheme = "Min Dark";
-      workbench.iconTheme = "material-icon-theme";
-      zig.initialSetupDone = true;
-      zig.path = "zig";
-      zig.zls.path = "zls";
+      "[csharp]" = {
+        "editor.defaultFormatter" = "ms-dotnettools.csharp";
+      };
+      "codesnap.realLineNumbers" = true;
+      "codesnap.showWindowControls" = false;
+      "codesnap.showWindowTitle" = true;
+      "codesnap.shutterAction" = "copy";
+      "codesnap.target" = "window";
+      "csharp.experimental.debug.hotReload" = true;
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "editor.formatOnPaste" = true;
+      "editor.formatOnSave" = true;
+      "editor.minimap.size" = "fit";
+      "workbench.colorTheme" = "Min Dark";
+      "workbench.iconTheme" = "material-icon-theme";
+      "zig.initialSetupDone" = true;
+      "zig.path" = "zig";
+      "zig.zls.path" = "zls";
     };
   };
 }

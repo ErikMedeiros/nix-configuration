@@ -16,6 +16,7 @@
       breakindent = true;
       termguicolors = true;
       background = "dark";
+      hlsearch = false;
     };
 
     colorschemes.kanagawa = {
@@ -68,6 +69,26 @@
           action = "<Nop>";
           key = "<Space>";
           options.silent = true;
+        }
+        {
+          mode = "n";
+          action = "<cmd>cprev<CR>";
+          key = "[q";
+        }
+        {
+          mode = "n";
+          action = "<cmd>cnext<CR>";
+          key = "]q";
+        }
+        {
+          mode = "n";
+          action = "<cmd>lprev<CR>";
+          key = "[l";
+        }
+        {
+          mode = "n";
+          action = "<cmd>lnext<CR>";
+          key = "]l";
         }
         {
           mode = "n";
@@ -180,9 +201,12 @@
           diagnostic = {
             "[d" = "goto_prev";
             "]d" = "goto_next";
+            "<leader>e" = "open_float";
           };
           lspBuf = {
             K = "hover";
+            "<C-k>" = "signature_help";
+            "<leader>rn" = "rename";
           };
           extra = let
             telescope = "require('telescope.builtin')";
