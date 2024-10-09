@@ -4,10 +4,10 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
         extensions = {
-            ['ui-select'] = { require("telescope.themes").get_dropdown() }
+            ["ui-select"] = { require("telescope.themes").get_dropdown() },
         },
         pickers = {
-            colorscheme = { enable_preview = true }
+            colorscheme = { enable_preview = true },
         },
     },
     config = function(opts)
@@ -19,8 +19,7 @@ return {
             builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
                 winblend = 10,
                 previwer = false,
-            })
-        )
+            }))
         end, { desc = "[/] Fuzzily search in current buffer" })
 
         vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
@@ -36,4 +35,5 @@ return {
         vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP: [G]oto [R]eferences" })
         vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "LSP: [D]ocument [S]ymbols" })
         vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "LSP: [W]orkspace [S]ymbols" })
-    end,}
+    end,
+}
