@@ -9,6 +9,9 @@
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    min-theme.url = "github:datsfilipe/min-theme.nvim";
+    min-theme.flake = false;
   };
 
   outputs = inputs @ {
@@ -28,7 +31,7 @@
           home-manager.extraSpecialArgs = inputs;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.erikm = import ./home.nix;
+          home-manager.users.erikm = import ./home-manager;
         }
       ];
     };

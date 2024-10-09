@@ -1,26 +1,12 @@
-{pkgs, ...}: {
-  # nix.gc.automatic = true;
-
-  home = {
-    username = "erikm";
-    homeDirectory = "/home/erikm";
-
-    packages = with pkgs; [
-      dbeaver-bin
-      nautilus
-      parallel
-      slack
-      webcord
-    ];
-
-    stateVersion = "23.11";
-  };
+{...}: {
+  programs.waybar.enable = true;
+  programs.tofi.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       monitor = ",preferred,auto,auto";
-      exec-once = ["waybar"];
+      exec-once = ["waybar" "omz theme use robbyrussell"];
 
       "$terminal" = "foot";
       "$fileManager" = "nautilus";
@@ -171,57 +157,6 @@
       };
 
       windowrulev2 = ["suppressevent maximize, class:.*"];
-    };
-  };
-
-  programs = {
-    home-manager.enable = true;
-    waybar.enable = true;
-    foot.enable = true;
-    tofi.enable = true;
-
-    zsh = {
-      enable = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      enableCompletion = true;
-
-      oh-my-zsh = {
-        enable = true;
-        theme = "robbyrussell";
-        plugins = ["dotnet" "git" "npm" "tldr"];
-      };
-    };
-
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    jq.enable = true;
-    neovim.enable = true;
-    ripgrep.enable = true;
-
-    thefuck = {
-      enable = true;
-      enableZshIntegration = true;
-      enableInstantMode = true;
-    };
-
-    vscode.enable = true;
-
-    git = {
-      enable = true;
-      userName = "Erik Medeiros";
-      userEmail = "erikmedeiros4@gmail.com";
-      extraConfig.init.defaultBranch = "main";
-
-      includes = [
-        {
-          condition = "gitdir:~/repos/gbm/";
-          contents.user.email = "erik.medeiros@gbmlogistica.com.br";
-        }
-      ];
     };
   };
 }
