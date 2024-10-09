@@ -15,9 +15,11 @@
     nixpkgs,
     home-manager,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.erikm-desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = inputs;
       modules = [
         ./configuration.nix
@@ -30,5 +32,7 @@
         }
       ];
     };
+
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }

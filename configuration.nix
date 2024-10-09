@@ -67,7 +67,7 @@
   users.users.erikm = {
     isNormalUser = true;
     useDefaultShell = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   environment = {
