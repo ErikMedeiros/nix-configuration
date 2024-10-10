@@ -42,6 +42,7 @@
 
     jq.enable = true;
     ripgrep.enable = true;
+    fd.enable = true;
 
     thefuck = {
       enable = true;
