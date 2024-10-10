@@ -21,14 +21,23 @@ in {
     source = ./lua;
   };
 
+  home.packages = with pkgs; [
+    stylua
+    eslint_d
+    prettierd
+  ];
+
   programs.neovim = {
     enable = true;
 
     plugins = with pkgs.vimPlugins; [
+      conform-nvim
       indent-blankline-nvim
       lazy-nvim
       min-theme-pkg
+      nvim-lint
       nvim-treesitter.withAllGrammars
+      nvim-web-devicons
       plenary-nvim
       telescope-nvim
       vim-fugitive
