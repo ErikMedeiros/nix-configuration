@@ -32,3 +32,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 -- Center screen on next/previous match
 vim.keymap.set("n", "n", "nzz", { silent = true })
 vim.keymap.set("n", "N", "Nzz", { silent = true })
+
+-- copy yanked text to system clipboard
+vim.keymap.set({ "n", "v" }, "y", '"+y', { silent = true })

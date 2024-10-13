@@ -41,7 +41,6 @@ in {
       nvim-web-devicons
       plenary-nvim
       telescope-nvim
-      vim-fugitive
       vim-sleuth
       which-key-nvim
     ];
