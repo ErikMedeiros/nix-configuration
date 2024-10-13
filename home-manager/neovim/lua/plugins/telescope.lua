@@ -9,9 +9,6 @@ return {
     extensions = {
       ["ui-select"] = { require("telescope.themes").get_dropdown() },
     },
-    pickers = {
-      colorscheme = { enable_preview = true },
-    },
   },
   config = function(opts)
     require("telescope").setup(opts)
@@ -34,19 +31,5 @@ return {
     vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
     vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-
-    vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP: [G]oto [R]eferences" })
-    vim.keymap.set(
-      "n",
-      "<leader>ds",
-      builtin.lsp_document_symbols,
-      { desc = "LSP: [D]ocument [S]ymbols" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>ws",
-      builtin.lsp_dynamic_workspace_symbols,
-      { desc = "LSP: [W]orkspace [S]ymbols" }
-    )
   end,
 }

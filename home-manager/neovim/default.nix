@@ -11,10 +11,11 @@
     meta.homepage = "https://github.com/datsfilipe/min-theme.nvim";
   };
 
-  maintainers = packages:
-    builtins.map
-    (pkg: "\"${builtins.elemAt (pkgs.lib.splitString "/" pkg.meta.homepage) 3}\"")
-    packages;
+  maintainers = with pkgs.lib;
+    packages:
+      builtins.map
+      (pkg: "\"${toLower (builtins.elemAt (splitString "/" pkg.meta.homepage) 3)}\"")
+      packages;
 in {
   xdg.configFile."nvim/lua" = {
     recursive = true;
@@ -22,21 +23,37 @@ in {
   };
 
   home.packages = with pkgs; [
-    stylua
+    csharp-ls
     eslint_d
+    lua-language-server
+    nixd
     prettierd
+    stylua
+    tailwindcss-language-server
+    typescript-language-server
+    zls
   ];
 
   programs.neovim = {
     enable = true;
 
     plugins = with pkgs.vimPlugins; [
+      cmp-nvim-lsp
+      cmp-path
+      cmp_luasnip
       conform-nvim
+      csharpls-extended-lsp-nvim
+      fidget-nvim
+      gitsigns-nvim
       indent-blankline-nvim
       lazy-nvim
+      lazydev-nvim
       lualine-nvim
+      luasnip
       min-theme-pkg
+      nvim-cmp
       nvim-lint
+      nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       plenary-nvim
