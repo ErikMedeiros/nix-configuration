@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./hyprland.nix ./neovim];
+  imports = [./hyprland.nix ./neovim ./vscode.nix];
 
   # nix.gc.automatic = true;
 
@@ -60,8 +60,6 @@
       enable = true;
       enableZshIntegration = true;
     };
-
-    vscode.enable = true;
 
     git = {
       enable = true;
