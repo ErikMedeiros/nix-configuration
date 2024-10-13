@@ -54,9 +54,24 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd Hyprland
+          --cmd Hyprland \
+          --remember \
+          --remember-session \
+          --sessions ${hyprland}/share/wayland-sessions
       '';
     };
+  };
+
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    # Without this errors will spam on screen
+    StandardError = "journal";
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
   };
 
   services.pipewire.enable = true;
