@@ -3,16 +3,29 @@
 
   # nix.gc.automatic = true;
 
-  home = {
+  fonts.fontconfig.enable = true;
+
+  home = let
+    dotnet-sdk = with pkgs.dotnetCorePackages; combinePackages [sdk_6_0 sdk_8_0];
+  in {
     username = "erikm";
     homeDirectory = "/home/erikm";
 
+    sessionPath = ["$HOME/.dotnet/tools"];
+    sessionVariables = {
+      DOTNET_ROOT = "${dotnet-sdk}";
+    };
+
     packages = with pkgs; [
       dbeaver-bin
+      dotnet-sdk
+      fira-code-nerdfont
       nautilus
+      nodejs_20
       parallel
       slack
       webcord
+      zig
     ];
 
     stateVersion = "23.11";
@@ -20,7 +33,6 @@
 
   programs = {
     home-manager.enable = true;
-    foot.enable = true;
 
     zsh = {
       enable = true;

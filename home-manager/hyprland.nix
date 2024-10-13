@@ -1,12 +1,28 @@
-{...}: {
-  programs.waybar.enable = true;
-  programs.tofi.enable = true;
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    hyprshot
+    wl-clipboard
+  ];
+
+  programs = {
+    waybar.enable = true;
+    tofi.enable = true;
+
+    foot = {
+      enable = true;
+      settings = {
+        main = {
+          font = "FiraCodeNerdFontMono:size=10";
+        };
+      };
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       monitor = ",preferred,auto,auto";
-      exec-once = ["waybar" "omz theme use robbyrussell"];
+      exec-once = ["waybar"];
 
       "$terminal" = "foot";
       "$fileManager" = "nautilus";
@@ -55,6 +71,11 @@
 
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
+
+        ", PRINT, exec, hyprshot -m region --clipboard-only"
+        "SHIFT, PRINT, exec, hyprshot -m output --clipboard-only"
+        "$mainMod, PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
+        "$mainMod SHIFT, PRINT, exec, hyprshot -m output -o ~/Pictures/Screenshots"
       ];
 
       bindm = [
@@ -145,8 +166,8 @@
       input = {
         kb_layout = "br";
         accel_profile = "flat";
-        repeat_rate = 50;
-        repeat_delay = 350;
+        repeat_rate = 45;
+        repeat_delay = 400;
       };
 
       gestures = {
