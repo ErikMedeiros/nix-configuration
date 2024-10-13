@@ -34,6 +34,7 @@ in {
       conform-nvim
       indent-blankline-nvim
       lazy-nvim
+      lualine-nvim
       min-theme-pkg
       nvim-lint
       nvim-treesitter.withAllGrammars
