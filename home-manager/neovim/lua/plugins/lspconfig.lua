@@ -36,6 +36,7 @@ return {
         map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+        map("<C-s>", vim.lsp.buf.signature_help, "[S]ignature Help")
 
         local builtin = require("telescope.builtin")
 
