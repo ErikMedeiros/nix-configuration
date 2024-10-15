@@ -5,13 +5,12 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
   },
-  opts = {
-    extensions = {
-      ["ui-select"] = { require("telescope.themes").get_dropdown() },
-    },
-  },
-  config = function(opts)
-    require("telescope").setup(opts)
+  config = function()
+    require("telescope").setup({
+      extensions = {
+        ["ui-select"] = { require("telescope.themes").get_dropdown() },
+      },
+    })
 
     local builtin = require("telescope.builtin")
 
